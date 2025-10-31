@@ -1,45 +1,45 @@
 # Hotel Data Automation
 
-This project helps you track and analyze hotel room prices for five hotel franchises across five cities.
+This project stores and analyses hotel room prices for five hotel franchises across five cities.
 
-## Scope
+## About the Project
 
-- Pick five hotel franchises that interest you.
-- Pick five cities where you want to compare prices.
-- Use a travel site like Priceline, Hotwire, Expedia or a similar platform to collect room prices.
-- Collect daily room rates from May 1 of the current year through the last date with available data.
-- Store the results in an SQLite database for easy access and analysis.
-- Identify the ten dates with the lowest price for each hotel in each city.
+- Collects daily room prices from travel websites like Priceline, Hotwire or Expedia.
+- Stores data in a SQLite database from May 1 of the current year onward.
+- Finds the ten cheapest dates for each hotel in each city.
+- Designed for a small team using Java.
 
-## Objectives
+## Code Overview
 
-- Build a program that runs smoothly and handles errors.
-- Design a SQLite schema to store hotel, city, date and price data.
-- Write tests using the Arrange‑Act‑Assert pattern.
-- Use JUnit annotations such as `@BeforeClass`, `@AfterClass`, `@Before` and `@After` to manage test setup and teardown.
-- Follow the DRY principle to avoid duplicate code.
-- Provide a report (Word document) listing the lowest price dates by hotel and city.
-- Prepare a short presentation explaining your approach.
+- **Data Collector** – uses HTTP requests and simple HTML parsing to fetch room prices from selected websites.
+- **Database Layer** – defines a SQLite schema with tables for hotels, cities, dates and prices; provides CRUD operations.
+- **Analysis Module** – queries the database to compute the lowest prices and extracts the top ten dates per hotel per city.
+- **Tests** – uses the Arrange–Act–Assert pattern with JUnit annotations (`@BeforeClass`, `@AfterClass`, `@Before`, `@After`) to set up and tear down test data.
+
+## How It Works
+
+1. At runtime, the data collector fetches prices for each hotel and city combination.
+2. The database layer writes the collected data to a local SQLite database.
+3. The analysis module retrieves the data and identifies the ten cheapest dates for each hotel and city.
+4. You can extend the project with a simple UI to display results or export them to a report.
 
 ## Repository Structure
 
-A suggested structure for this repository could include:
-
-- `src/` – source code for fetching, storing and analyzing data.
-- `data/` – SQLite database or scripts to initialize it.
-- `tests/` – unit tests following the AAA pattern.
-- `docs/` – project notes and the final report.
+- `src/` – Java source code for data collection, database management and analysis.
+- `tst/` – unit tests for each module.
+- `out/` – compiled classes and build outputs.
+- `README.md` – project description and usage instructions.
 
 ## Getting Started
 
-1. Fork or clone this repository.
-2. Set up your preferred Java IDE (IntelliJ recommended).
-3. Install any required libraries for HTTP requests, parsing and SQLite.
-4. Create the database schema under `data/`.
-5. Write scripts to scrape room prices from the chosen travel site.
-6. Run tests to verify functionality.
-7. Generate the report and add it to `docs/` when complete.
+- Clone this repository.
+- Use Java 17 (or later) and SQLite.
+- Install any required libraries for HTTP and parsing.
+- Run the collector to populate the database, then execute the analysis module to generate results.
 
-## Contributions
+## Contributing
 
-Work in a small team if you prefer. Keep commit messages clear. Push changes through pull requests for review.
+- Create a branch for your changes.
+- Commit and push your updates.
+- Open a pull request for review.
+- Keep your contributions clear and modular to avoid duplication.
